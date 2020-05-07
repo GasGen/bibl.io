@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class CategoriesController extends Controller
 {
@@ -13,7 +14,11 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+
+        return view('categories.index', [
+            'categories'=>$categories
+        ]);
     }
 
     /**
@@ -23,7 +28,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -33,8 +38,20 @@ class CategoriesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $category = new Category();
+
+        $validate = $request->validate([
+            'name'=>'required|min:4',
+            'description'=>'required|min:10'
+        ]);
+
+        $category->name = $validate['name'];
+        $category->description = $validate['description'];
+        
+        $category->save();
+
+        return redirect('/categories');
     }
 
     /**
@@ -45,7 +62,11 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        return view('categories.show', [
+            'category'=>$category
+        ]);
     }
 
     /**
@@ -56,7 +77,11 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        return view('categories.edit', [
+            'category'=>$category
+        ]);
     }
 
     /**
@@ -68,7 +93,20 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        $validate = $request->validate([
+            'name'=>'required|min:4',
+            'description'=>'required|min:10'
+        ]);
+
+        $category->name = $validate['name'];
+        $category->description = $validate['description'];
+
+        $category->save();
+
+        return redirect('/categories');
+
     }
 
     /**
@@ -79,6 +117,9 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+
+        return redirect('/categories');
     }
 }

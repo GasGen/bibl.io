@@ -12,7 +12,22 @@
                 </thead>
                 <tbody class="table">
                     <tr>
-                       <td>Here will be the books from the category {{ $category->name }}</td>
+                    <table class="table">
+                            <thead class="table table-borderless">
+                                <tr>
+                                    <td><b>Title</b></td>
+                                    <td><b>Author</b></td>
+                                </tr>
+                            </thead>
+                            <tbody class="table">
+                                @foreach($category->books as $book)
+                                <tr>
+                                   <td><a href="/books/{{ $book->id }}">{{ $book->title }}</a></td>
+                                   <td><a href="/books/{{ $book->id }}">{{ $book->author->name }} {{ $book->author->surname }}</a></a>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </tr>
                     <tr>
                         @csrf

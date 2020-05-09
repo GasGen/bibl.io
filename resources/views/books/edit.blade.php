@@ -56,7 +56,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="donor" id="donor" class="form-control" placeholder="Book donor"></td>
+                        <td><input type="number" name="year" id="year" class="form-control" placeholder="year of publication"></td>
                     </tr>
                     <tr>
                         @csrf

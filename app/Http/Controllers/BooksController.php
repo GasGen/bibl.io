@@ -55,15 +55,16 @@ class BooksController extends Controller
             'title'=>'required|min:4',
             'author_id'=>'required',
             'description'=>'required|min:30',
+            'year'=>'required',
             'category_id'=>'required'
         ]);
 
         $book->title = $validate['title'];
         $book->author_id = $validate['author_id'];
         $book->description = $validate['description'];
+        $book->year = $validate['year'];
         $book->category_id = $validate['category_id'];
         $book->isbn = $request->get('isbn');
-        $book->donor = $request->get('donor');
 
         $book->save();
 
@@ -120,15 +121,16 @@ class BooksController extends Controller
             'title'=>'required|min:4',
             'author_id'=>'required',
             'description'=>'required|min:30',
+            'year'=>'required',
             'category_id'=>'required'
         ]);
 
         $book->title = $validate['title'];
         $book->author_id = $validate['author_id'];
         $book->description = $validate['description'];
+        $book->year = $validate['year'];
         $book->category_id = $validate['category_id'];
         $book->isbn = $request->get('isb');
-        $book->donor = $request->get('donor');
 
         $book->save();
 

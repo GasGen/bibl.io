@@ -3,7 +3,6 @@
 @section('content')
 <div class="container">
 
-        <form action="#" method="post">
             <table class="table">
                 <thead class="table">
                     <tr>
@@ -16,11 +15,10 @@
                     </tr>
                     <tr>
                         @csrf
-                        <td> <a href="/books/{{$book->id}}/edit" class="btn btn-sm btn-outline-secondary mr-2">Back</a> <button type="submit" class="btn btn-sm btn-success">Edit book</button></td>
+                        <td> <a href="/books/{{$book->id}}/edit" class="btn btn-sm btn-outline-secondary mr-2">Back</a> <a href="/books/{{ $book->id }}/edit" class="btn btn-sm btn-success">Edit book</a></td>
                     </tr>
                 </tbody>
             </table>
-        </form>
     
     </div>
 @endsection('content')

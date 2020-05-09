@@ -23,4 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/categories', 'CategoriesController');
 Route::resource('/authors', 'AuthorsController');
+Route::resource('/books', 'BooksController');
 //Route::resource('/authors', 'AuthorsController');

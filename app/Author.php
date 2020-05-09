@@ -9,6 +9,6 @@ class Author extends Model
 {
     protected $table ='authors';
     public function books() {
-        return $this->hasMany(Book::class, 'id', 'id');
+        return $this->hasMany(Book::class);
     }
 }

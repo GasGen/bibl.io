@@ -5,9 +5,8 @@
         <table class="table">
             <thead class="table">
                 <tr>
-                    <td><h1 class="mt-2"><b>Author: {{ $author->name }} {{ $author->surname }} </b></h1><br>
-                    <b>Birth:</b> {{ $author->birth }}, <b>Death:</b> {{ $author->death }}<br>
-                    {{ $author->extract }}
+                    <td><h1 class="mt-2"><b>Reader: {{ $reader->name }} {{ $reader->surname }} </b></h1><br>
+                    <b>Birth:</b> {{ $reader->birth }}
                     </td>
                 </tr>
             </thead>
@@ -16,25 +15,19 @@
                    <td>
                         <table class="table">
                             <thead class="table table-borderless">
-                                <tr>
-                                    <td><b>Title</b></td>
-                                    <td><b>Category</b></td>
-                                </tr>
+                                <td>reader info</td>
                             </thead>
                             <tbody class="table">
-                                @foreach($author->books as $book)
                                 <tr>
-                                   <td><a href="/books/{{ $book->id }}">{{ $book->title }}</a></td>
-                                   <td>{{ $book->category->name }}</td>
+                                    
                                 </tr>
-                                @endforeach
                             </tbody>
                         </table>
                    </td>
                 </tr>
                 <tr>
                     @csrf
-                    <td> <a href="/authors" class="btn btn-sm btn-outline-secondary mr-2">Back</a> <a href="/books/create" class="btn btn-sm btn-success">Add book</button></td>
+                    <td> <a href="/readers" class="btn btn-sm btn-outline-secondary mr-2">Back</a></td>
                 </tr>
             </tbody>
         </table>

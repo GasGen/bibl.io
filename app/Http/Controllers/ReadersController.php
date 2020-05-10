@@ -57,7 +57,7 @@ class ReadersController extends Controller
         $reader = new Reader();
         $user_reader = User::where('email', $validate['email'])->first();
 
-        $reader->reader_name = $validate['name'];
+        $reader->name = $validate['name'];
         $reader->user_id = $user_reader->id;
         $reader->birth = $validate['birth'];
         
@@ -74,7 +74,11 @@ class ReadersController extends Controller
      */
     public function show($id)
     {
-        //
+        $reader = Reader::findOrFail($id);
+
+        return view('readers.show', [
+            'reader'=>$reader
+        ]);
     }
 
     /**
@@ -85,7 +89,12 @@ class ReadersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $reader = Reader::findOrFail($id);
+
+        return view('readers.edit', [
+            'reader'=>$reader
+        ]);
+
     }
 
     /**
@@ -97,7 +106,21 @@ class ReadersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $reader = Reader::findOrFail($id);
+
+        $validate = $request->validate([
+            'name'=>'required',
+            'birth'=>'required',
+        ]);
+
+        $reader->name = $validate['name'];
+        $reader->birth = $validate['birth'];
+
+        $reader->save();
+
+        return redirect('/readers');
+
+
     }
 
     /**
@@ -108,6 +131,10 @@ class ReadersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reader = Reader::findOrFail($id);
+
+        $reader->delete();
+
+        return redirect('/readers');
     }
 }

@@ -18,6 +18,9 @@
                 <tr>
                     <td><h2><a href="/categories" class="btn btn-block btn-outline-dark">CATEGORIES</a></h2></td>
                 </tr>
+                <tr>
+                    <td><h2><a href="/readers" class="btn btn-block btn-outline-dark ">READERS</a></h2></td>
+                </tr>
             </tbody>
         </table>
     

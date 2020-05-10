@@ -3,12 +3,12 @@
 @section('content')
     <div class="container">
 
-        <form action="/authors/{{ $author->id }}" method="post">
+        <form action="/readers/{{ $reader->id }}" method="post">
             @method('PUT')
             <table class="table">
                 <thead class="table">
                     <tr>
-                        <td><b>Edit author: {{ $author->name }} {{ $author->surname }}</b></td>
+                        <td><b>Edit reader: {{ $reader->name }}</b></td>
                     </tr>
                     @if($errors->all())
                         <tr>
@@ -29,7 +29,7 @@
                     <tr>
                         <td><input type="text" name="name" id="name" class="form-control" placeholder="Name"></td>
                     </tr>
-                    <tr>
+                    <!--<tr>
                         <td><input type="text" name="surname" id="surname" class="form-control" placeholder="Surname"></td>
                     </tr>
                     <tr>
@@ -38,15 +38,12 @@
                     <tr>
                         <td><textarea name="extract" id="extract" class="form-control" placeholder="extract"></textarea></td>
                     </tr>
-                    <tr>
+                    <tr>-->
                         <td><input type="date" name="birth" id="birth" class="form-control" placeholder="birth"></td>
                     </tr>
                     <tr>
-                        <td><input type="date" name="death" id="death" class="form-control" placeholder="death"></td>
-                    </tr>
-                    <tr>
                         @csrf
-                        <td> <a href="/authors" class="btn btn-sm btn-outline-secondary mr-2">Back</a> <button type="submit" class="btn btn-sm btn-success">Edit author</button></td>
+                        <td> <a href="/readers" class="btn btn-sm btn-outline-secondary mr-2">Back</a> <button type="submit" class="btn btn-sm btn-success">Edit reader</button></td>
                     </tr>
                 </tbody>
             </table>

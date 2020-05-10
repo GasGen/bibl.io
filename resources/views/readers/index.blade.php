@@ -15,8 +15,8 @@
             <tbody class="table">
                 @foreach($readers as $reader)
                     <tr>
-                        <td><a href="/readers/{{ $reader->id }}">{{ $reader->reader_name }}</a></td>
-                        <td><a href="readers/{{ $reader->id }}/edit" class="btn btn-sm btn-outline-secondary">edit</a></td>
+                        <td><a href="/readers/{{ $reader->id }}">{{ $reader->name }}</a></td>
+                        <td><a href="/readers/{{ $reader->id }}/edit" class="btn btn-sm btn-outline-secondary">edit</a></td>
                         <td>
                             <form action="readers/{{ $reader->id }}" method="POST">
                                 @method('DELETE')

@@ -6,7 +6,7 @@
 
         <table class="table">
             <thead class="table">
-                <tr><td><h1>MENU</h1></td></tr>
+                <tr><td><h1>CRUD MENU</h1></td></tr>
             </thead>
             <tbody class="table text-center">
                 <tr>

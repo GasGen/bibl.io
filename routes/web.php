@@ -13,8 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('search');
+});
+
+Route::post('/search', 'SearchController@results');
+
+Route::get('/crud', function () {
+    return view('crud');
 });
 
 Auth::routes();

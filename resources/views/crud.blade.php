@@ -2,8 +2,6 @@
 
 @section('content')
 
-    <div class="container">
-
         <table class="table">
             <thead class="table">
                 <tr><td><h1>CRUD MENU</h1></td></tr>
